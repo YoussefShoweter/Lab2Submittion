@@ -68,13 +68,13 @@ public class Sheet3Test {
             rekt.input('c');
             rekt.input('b');
             rekt.input('b');
-            rekt.input('a');
+            rekt.input('c');
             rekt.input('b');
             String[] res = rekt.input('b'); 
             assertEquals("UPDATE", res[0]);
-            assertEquals("hour", res[1]); 
+            assertEquals("min", res[1]);
             assertEquals("2000-1-1", res[2]);
-            assertEquals("2:2", res[3]);
+            assertEquals("0:4", res[3]);
         }
 
         @Test
@@ -147,19 +147,19 @@ public class Sheet3Test {
         public void EleventhADUP(){
             rekt.input('c');
             rekt.input('b');
-            rekt.input('b');
+            rekt.input('a');
             rekt.input('a');
             rekt.input('b');
             rekt.input('b');
             rekt.input('a');
             rekt.input('b');
+            rekt.input('c');
             rekt.input('b');
-            rekt.input('a');
             String[] res = rekt.input('b');
             assertEquals("UPDATE", res[0]);
             assertEquals("month", res[1]);
-            assertEquals("2000-2-3", res[2]);
-            assertEquals("2:2", res[3]);
+            assertEquals("2000-4-3", res[2]);
+            assertEquals("0:1", res[3]);
         }
 
         @Test

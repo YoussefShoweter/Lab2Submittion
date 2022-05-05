@@ -1,52 +1,52 @@
 public class Sheet3 {
     public String state = "NORMAL";
-    public String state1 = "TIME";
+    public String Option2 = "TIME";
     public int m = 0, h = 0, D = 1, M = 1, Y = 2000;
 
     public String[] input(char c) {
         if (state.equals("NORMAL")) {
             if (c == 'c') {
                 state = "UPDATE";
-                state1 = "min";
+                Option2 = "min";
             }
 
             if (c == 'b') {
                 state = "ALARM";
-                state1 = "Alarm";
+                Option2 = "Alarm";
             }
             if (c == 'a') {
-                if (state1.equals("TIME")) {
-                    state1 = "DATE";
+                if (Option2.equals("TIME")) {
+                    Option2 = "DATE";
                 } else {
-                    state1 = "TIME";
+                    Option2 = "TIME";
                 }
             }
         }
         if (state.equals("UPDATE")) {
             if (c == 'd') {
                 state = "NORMAL";
-                state1 = "TIME";
+                Option2 = "TIME";
             }
             if (c == 'a') {
-                if (state1.equals("year")) {
+                if (Option2.equals("year")) {
                     state = "NORMAL";
-                    state1 = "TIME";
+                    Option2 = "TIME";
                 }
-                if (state1.equals("month")) {
-                    state1 = "year";
+                if (Option2.equals("month")) {
+                    Option2 = "year";
                 }
-                if (state1.equals("day")) {
-                    state1 = "month";
+                if (Option2.equals("day")) {
+                    Option2 = "month";
                 }
-                if (state1.equals("hour")) {
-                    state1 = "day";
+                if (Option2.equals("hour")) {
+                    Option2 = "day";
                 }
-                if (state1.equals("min")) {
-                    state1 = "hour";
+                if (Option2.equals("min")) {
+                    Option2 = "hour";
                 }
             }
             if (c == 'b') {
-                if (state1.equals("min")) {
+                if (Option2.equals("min")) {
                     m++;
                 }
                 if (m >= 60) {
@@ -54,25 +54,25 @@ public class Sheet3 {
                 }
 
 
-                if (state1.equals("hour")) {
+                if (Option2.equals("hour")) {
                     h++;
                     if (h >= 24) {
                         h = 0;
                     }
                 }
-                if (state1.equals("day")) {
+                if (Option2.equals("day")) {
                     D++;
                     if (D > 31) {
                         D = 1;
                     }
                 }
-                if (state1.equals("month")) {
+                if (Option2.equals("month")) {
                     M++;
                     if (M > 12) {
                         M = 1;
                     }
                 }
-                if (state1.equals("year")) {
+                if (Option2.equals("year")) {
                     Y++;
                     if (Y > 2100) {
                         Y = 2000;
@@ -84,12 +84,12 @@ public class Sheet3 {
         if(state.equals("ALARM")){
             if (c == 'd') {
                 state = "NORMAL";
-                state1 = "TIME";
+                Option2 = "TIME";
             }if (c == 'a') {
-                state1 = "Chime";
+                Option2 = "Chime";
             }
         }
-        return new String[]{state, state1, String.valueOf(Y) + "-" +
+        return new String[]{state, Option2, String.valueOf(Y) + "-" +
                 String.valueOf(M) + "-" + String.valueOf(D), String.valueOf(h) + ":" +
                 String.valueOf(m) };
     }
